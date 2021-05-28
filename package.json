@@ -1,0 +1,29 @@
+{
+	"name": "11ty-starter",
+	"version": "1.0.0",
+	"description": "An SEO ready starter kit for 11ty with Design Tokens, Responsive Type Scale and Cypress Testing.",
+	"main": ".eleventy.js",
+	"scripts": {
+		"build": "npm-run-all generate:tokens eleventy:build",
+		"dev": "npm-run-all generate:tokens eleventy:serve",
+		"eleventy:serve": "eleventy --serve",
+		"eleventy:build": "eleventy",
+		"test": "npm-run-all --parallel dev cypress",
+		"cypress": "npx cypress open",
+		"generate:tokens": "npx kubas"
+	},
+	"author": "Chris Galbraith",
+	"license": "MIT",
+	"devDependencies": {
+		"@11ty/eleventy": "^0.11.0",
+		"@11ty/eleventy-navigation": "^0.1.5",
+		"cypress": "^3.8.0",
+		"kubas": "^0.3.0",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.2.10",
+		"postcss-cli": "^8.3.1",
+		"postcss-import": "^14.0.0",
+		"postcss-logical": "^4.0.2",
+		"postcss-nested": "^5.0.5"
+	}
+}

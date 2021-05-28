@@ -1,0 +1,18 @@
+{#
+
+    maxLength - Maximum character count
+    input - Reference to input element to count
+    class - Optional classes to add to this component
+
+#}
+{% macro characterCount(_) %}
+    <div
+        x-data="{ input: null, currentCount: 0, maxLength: {{ _.maxLength }} }"
+        x-init="input = document.querySelector('{{ _.input }}'); input.addEventListener('input', (e) => { currentCount = e.target.value.length })"
+        :class="{ 'c-negative': currentCount >= maxLength }"
+        class="c-gray-70 size-sm {{ _.class }}"
+    >
+        <span x-text="maxLength - currentCount">{{ _.maxLength }}</span>
+        <span x-text="`characters remaining`">character limit</span>
+    </div>
+{% endmacro %}

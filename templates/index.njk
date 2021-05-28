@@ -1,0 +1,85 @@
+---
+title: Home
+description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Type Scale and Cypress Testing.
+---
+{% from "macros/tag/macro.njk" import tag %}
+{% from "macros/tabs/macro.njk" import tabs %}
+{% from "macros/accordion/macro.njk" import accordion %}
+{% from "macros/button/macro.njk" import button %}
+{% from "macros/character-count/macro.njk" import characterCount %}
+
+<section class="block-area">
+    <header class="flow flow-space-3 py-12">
+        <h1>Common UI Patterns</h1>
+        <p class="c-gray-70">A collection of common UI patterns, built with AlpineJS, delivered as Macros to be used with Nunjucks or Twig.</p>
+        <nav>
+            <ul class="cluster">
+                <li><a href="#accordion">Accordion</a></li>
+                <li><a href="#button">Button</a></li>
+                <li><a href="#character-count">Character Count</a></li>
+                <li><a href="#tag">Tag</a></li>
+                <li><a href="#tabs">Tabs</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="flow flow-space-20 mw-md py-16">
+        <div id="accordion" class="flow">
+            <h2 class="h4">Accordion</h2>
+            {{ accordion({
+                items: [
+                    {
+                        title: "About Us",
+                        content: "<p>Vestibulum rhoncus ut ante non lobortis. Vivamus vel magna nisi. Mauris semper augue tortor, eu imperdiet ipsum maximus ut. Quisque porttitor massa in euismod congue. Donec erat turpis, venenatis sed vulputate a, imperdiet id nisi. Duis nec consectetur neque. Morbi et fringilla nisi, eu lacinia sem. Integer sodales ipsum a ante facilisis, nec vestibulum nulla mollis.</p>"
+                    },
+                    {
+                        title: "Our Services",
+                        content: "<p>Duis at rhoncus magna. Praesent sit amet mauris nec massa porta venenatis. Aenean nec mi sit amet lectus mollis faucibus. Cras auctor pretium volutpat. Aliquam sit amet neque pretium, hendrerit purus vel, malesuada ex. Vestibulum sit amet neque blandit, laoreet turpis in, vulputate quam. Aenean molestie aliquam enim a blandit. Suspendisse egestas euismod massa at interdum.</p>"
+                    }
+                ]
+            }) }}
+        </div>
+
+        <div id="button" class="flow">
+            <h2 class="h4">Button</h2>
+            {{ button({
+                tag: 'a',
+                href: '#',
+                content: 'Click me'
+            }) }}
+        </div>
+
+        <div id="character-count" class="flow">
+            <h2 class="h4">Character Count</h2>
+            <div class="flow flow-space-1">
+                <input type="text" id="input">
+                {{ characterCount({
+                    input: '#input',
+                    maxLength: 250
+                }) }}
+            </div>
+        </div>
+
+        <div id="tag" class="flow">
+            <h2 class="h4">Tag</h2>
+            {{ tag({
+                text: "Tag"
+            }) }}
+        </div>
+
+        <div id="tabs" class="flow">
+            <h2 class="h4">Tabs</h2>
+            {{ tabs({
+                items: [
+                    {
+                        title: "About Us",
+                        content: "<p>Vestibulum rhoncus ut ante non lobortis. Vivamus vel magna nisi. Mauris semper augue tortor, eu imperdiet ipsum maximus ut. Quisque porttitor massa in euismod congue. Donec erat turpis, venenatis sed vulputate a, imperdiet id nisi. Duis nec consectetur neque. Morbi et fringilla nisi, eu lacinia sem. Integer sodales ipsum a ante facilisis, nec vestibulum nulla mollis.</p>"
+                    },
+                    {
+                        title: "Our Services",
+                        content: "<p>Duis at rhoncus magna. Praesent sit amet mauris nec massa porta venenatis. Aenean nec mi sit amet lectus mollis faucibus. Cras auctor pretium volutpat. Aliquam sit amet neque pretium, hendrerit purus vel, malesuada ex. Vestibulum sit amet neque blandit, laoreet turpis in, vulputate quam. Aenean molestie aliquam enim a blandit. Suspendisse egestas euismod massa at interdum.</p>"
+                    }
+                ]
+            }) }}
+        </div>
+    </main>
+</section>

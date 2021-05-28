@@ -1,0 +1,41 @@
+{#
+
+    id: Unique ID for this set of tabs, required if you have more than one per page
+    items: Accordion content, each item requires title and content.
+    class: Optional class to add to the component wrapper
+
+#}
+
+{% macro accordion(_) %}
+    {% set id = _.id | default('item') %}
+
+    <div class="accordion {{ _.class }}" x-data="{ activeItem: '' }">
+        {% for item in _.items %}
+        <h3
+            class="accordion__heading | size-base"
+            :data-state="activeItem === '{{ id }}-{{ loop.index }}' ? 'active' : 'inactive'"
+            @click="activeItem = (activeItem !== '{{ id }}-{{ loop.index }}' ? '{{ id }}-{{ loop.index }}' : '')"
+        >
+            <button
+                id="accordion-button-{{ id }}-{{ loop.index }}"
+                aria-controls="accordion-panel-{{ id }}-{{ loop.index }}"
+                :aria-expanded="activeItem === '{{ id }}-{{ loop.index }}'"
+            >
+                {{ item.title }}
+            </button>
+            <svg class="accordion__heading-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+        </h3>
+        <div
+            class="accordion__panel"
+            :hidden="activeItem !== '{{ id }}-{{ loop.index }}'"
+            id="accordion-panel-{{ id }}-{{ loop.index }}"
+            aria-labelledby="accordion-button-{{ id }}-{{ loop.index }}"
+            tabindex="-1"
+        >
+            {{ item.content | safe }}
+        </div>
+        {% endfor %}
+    </div>
+{% endmacro %}

@@ -1,0 +1,5 @@
+{% macro button(_) %}
+    <{{ _.tag | default('button') }} class="btn" href="{{ _.href }}">
+        {{ _.content | safe }}
+    </{{ _.tag | default('button') }}>
+{% endmacro %}

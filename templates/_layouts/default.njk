@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ site.language | default('en') }}">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+        <title>{{ title }}</title>
+        <meta name="description" content="{{ description }}">
+        {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+
+        {# Stylesheets #}
+        {% for href in site.stylesheets %}
+            <link rel="stylesheet" href="{{ href }}">
+        {% endfor %}
+
+        {% for href in stylesheets %}
+            <link rel="stylesheet" href="{{ href }}">
+        {% endfor %}
+
+        {% for src in site.scripts %}
+            <script src="{{ src }}" defer></script>
+        {% endfor %}
+
+        {% for src in scripts %}
+            <script src="{{ src }}" defer></script>
+        {% endfor %}
+
+        <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <meta name="twitter:dnt" content="on">
+
+    </head>
+    <body class="{{ bodyClass }}">
+
+        {{ content | safe }}
+
+        {# Cookie Consent 😴 #}
+        {% if site.cookieConsent.show %}
+            <cookie-consent-banner hidden>
+                <p>{{ site.cookieConsent.text | default('We use cookies to provide the best experience.') }}</p>
+            </cookie-consent-banner>
+            <script type="module" src="https://unpkg.com/simple-cookie-consent-banner/cookie-consent-banner.js"></script>
+        {% endif %}
+
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{#
+
+    bgColor: String
+    color: String
+    text: String
+
+#}
+
+{% macro tag(_) %}
+    <span class="bg-{{ _.bgColor | default('neutral') }} c-{{ _.color | default('white') }} size-sm px-2 py-1">{{ _.text }}</span>
+{% endmacro %}
