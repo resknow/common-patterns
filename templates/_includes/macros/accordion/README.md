@@ -1,12 +1,20 @@
 ### Usage
 
-```html
-{% from "macros/accordion/macro.njk" import accordion %} {{ accordion({ items: [
-{ title: "About Us", content: "Vestibulum rhoncus ut ante non lobortis. Vivamus
-vel magna nisi. Mauris semper augue tortor, eu imperdiet ipsum maximus ut." }, {
-title: "Our Services", content: "Duis at rhoncus magna. Praesent sit amet mauris
-nec massa porta venenatis. Aenean nec mi sit amet lectus mollis faucibus. Cras
-auctor pretium volutpat." } ] }) }}
+```
+{% from "macros/accordion/macro.njk" import accordion %}
+
+{{ accordion({
+    items: [
+        {
+            title: "About Us",
+            content: "Vestibulum rhoncus ut ante non lobortis. Vivamus vel magna nisi. Mauris semper augue tortor, eu imperdiet ipsum maximus ut."
+        },
+        {
+            title: "Our Services",
+            content: "Duis at rhoncus magna. Praesent sit amet mauris nec massa porta venenatis. Aenean nec mi sit amet lectus mollis faucibus. Cras auctor pretium volutpat."
+        }
+    ]
+}) }}
 ```
 
 ### Arguments
