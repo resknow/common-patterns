@@ -1,5 +1,9 @@
 {% macro button(_) %}
-    <{{ _.tag | default('button') }} class="btn" href="{{ _.href }}">
+    <{{ _.tag | default('button') }}
+        class="btn"
+        href="{{ _.href }}"
+        {% for key,value in _.attributes %}{{ key }}="{{ value }}" {% endfor %}
+    >
         {{ _.content | safe }}
     </{{ _.tag | default('button') }}>
 {% endmacro %}

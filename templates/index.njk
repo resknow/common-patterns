@@ -7,6 +7,8 @@ description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Ty
 {% from "macros/accordion/macro.njk" import accordion %}
 {% from "macros/button/macro.njk" import button %}
 {% from "macros/character-count/macro.njk" import characterCount %}
+{% from "macros/notice/macro.njk" import notice %}
+{% from "macros/gallery/macro.njk" import gallery %}
 
 <section class="block-area">
     <header class="flow flow-space-3 py-12">
@@ -17,6 +19,8 @@ description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Ty
                 <li><a href="#accordion">Accordion</a></li>
                 <li><a href="#button">Button</a></li>
                 <li><a href="#character-count">Character Count</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#notice">Notice</a></li>
                 <li><a href="#tag">Tag</a></li>
                 <li><a href="#tabs">Tabs</a></li>
             </ul>
@@ -57,6 +61,39 @@ description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Ty
                     maxLength: 250
                 }) }}
             </div>
+        </div>
+
+        <div id="gallery" class="flow">
+            <h2 class="h4">Gallery</h2>
+            {{ gallery({
+                images: [
+                    {
+                        src: '/assets/images/gallery/1.jpg',
+                        thumbnail: '/assets/images/gallery/1.jpg',
+                        alt: 'Photo of a log'
+                    },
+                    '/assets/images/gallery/2.jpg',
+                    '/assets/images/gallery/3.jpg',
+                    '/assets/images/gallery/4.jpg',
+                    '/assets/images/gallery/5.jpg',
+                    '/assets/images/gallery/6.jpg'
+                ]
+            }) }}
+        </div>
+
+        <div id="notice" class="flow">
+            <h2 class="h4">Notice</h2>
+            {{ notice({
+                title: 'Customer Notice',
+                content: '<p>We are going to be closed for some reason.</p>',
+                actions: button({
+                    tag: 'button',
+                    content: 'Click me',
+                    attributes: {
+                        '@click': 'isOpen = false'
+                    }
+                })
+            }) }}
         </div>
 
         <div id="tag" class="flow">

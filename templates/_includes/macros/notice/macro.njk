@@ -1,0 +1,15 @@
+{% macro notice(_) %}
+    <div
+        x-data="{ isOpen: true }"
+        x-init="$watch('isOpen', (value) => { $dispatch('notice-state', { isOpen: value }) })"
+        x-show="isOpen"
+        class="notice | flow flow-space-2 shadow-lg px-6 py-4">
+        {% if _.title %}<h3 class="notice__title">{{ _.title | safe }}</h3>{% endif %}
+        {{ _.content | safe }}
+        {% if _.actions %}
+            <div class="notice__actions">
+                {{ _.actions | safe }}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

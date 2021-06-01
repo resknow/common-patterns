@@ -1,0 +1,17 @@
+{% macro gallery(_) %}
+    <div class="gallery | auto-grid {{ _.class }}" style="--min-width: {{ _.colMinWidth | default('10rem') }}">
+        {% for image in _.images %}
+        <a class="gallery__item" href="{{ image.src if image.src else image }}">
+            <img
+                data-fslightbox="gallery"
+                data-type="image"
+                src="{{ image.thumbnail if image.thumbnail else image }}"
+                alt="{{ image.alt if image.alt else '' }}"
+                loading="{{ _.loading | default('lazy') }}"
+                width="{{ image.width if image.width else '600' }}"
+                height="{{ image.height if image.height else '600' }}"
+            >
+        </a>
+        {% endfor %}
+    </div>
+{% endmacro %}
