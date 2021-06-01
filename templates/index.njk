@@ -1,6 +1,9 @@
 ---
 title: Home
 description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Type Scale and Cypress Testing.
+scripts:
+    - /assets/js/fslightbox.js
+    - /assets/js/scooch.js
 ---
 {% from "macros/tag/macro.njk" import tag %}
 {% from "macros/tabs/macro.njk" import tabs %}
@@ -9,6 +12,7 @@ description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Ty
 {% from "macros/character-count/macro.njk" import characterCount %}
 {% from "macros/notice/macro.njk" import notice %}
 {% from "macros/gallery/macro.njk" import gallery %}
+{% from "macros/carousel/macro.njk" import carousel %}
 
 <section class="block-area">
     <header class="flow flow-space-3 py-12">
@@ -18,6 +22,7 @@ description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Ty
             <ul class="cluster">
                 <li><a href="#accordion">Accordion</a></li>
                 <li><a href="#button">Button</a></li>
+                <li><a href="#carousel">Carousel</a></li>
                 <li><a href="#character-count">Character Count</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#notice">Notice</a></li>
@@ -49,6 +54,17 @@ description: An SEO ready starter kit for 11ty with Design Tokens, Responsive Ty
                 tag: 'a',
                 href: '#',
                 content: 'Click me'
+            }) }}
+        </div>
+
+        <div id="carousel" class="flow">
+            <h2 class="h4">Carousel</h2>
+            {{ carousel({
+                slides: [
+                    '<p>Slide 1</p>',
+                    '<p>Slide 2</p>',
+                    '<p>Slide 3</p>'
+                ]
             }) }}
         </div>
 
