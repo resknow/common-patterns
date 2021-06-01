@@ -11,6 +11,9 @@
 @import 'components/form.css';
 @import 'components/page-footer.css';
 
+/* Vendor Styles */
+@import 'vendor/scooch.css';
+
 @import 'utilities/auto-grid.css';
 @import 'utilities/cluster.css';
 @import 'utilities/container.css';
