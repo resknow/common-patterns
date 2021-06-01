@@ -29,3 +29,7 @@
 | `items.[].height`    | Number | Image height                                                                |
 | `class`              | String | Optional class to add to the component wrapper                              |
 | `colMinWidth`        | String | Grid column min-width                                                       |
+
+### Notes
+
+If FSLightbox is available on the page, clicking on a gallery image will open it in a lightbox.
