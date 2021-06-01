@@ -21,7 +21,7 @@
 | Name                 | Type   | Description                                                                 |
 | -------------------- | ------ | --------------------------------------------------------------------------- |
 | `id`                 | String | Unique ID for this set of tabs, required if you have more than one per page |
-| `images              | Array  | Gallery content                                                             |
+| `images`             | Array  | Gallery content                                                             |
 | `items.[].src`       | String | Full size image                                                             |
 | `items.[].thumbnail` | String | Thumbnail image                                                             |
 | `items.[].alt`       | String | Image alt text                                                              |
